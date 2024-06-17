@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Тестовая форма</h1>
+{% block content %}
+<div class="responsive-table__container">
+  <h1>Заполните заявку</h1>
+  <form method="post">
+    <p><label>Имя: </label> <input type="text" name="name" value="" requied />
+    <p><label>Email: </label> <input type="text" name="email" value="" requied />
+    <p><input type="submit" value="Отправить" />
+  </form>
+</div>
+{% endblock %}
+</body>
+</html>
