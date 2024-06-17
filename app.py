@@ -5,23 +5,22 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
+
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=True)
     email = db.Column(db.String(100), unique=True, nullable=True)
 
-    # pr = db.relationship('Profiles', backref='users', uselist=False)
 
 @app.route("/success")
 def success():
-    return render_template("successful.html")
+    return render_template("successful.html", title="Страница success")
 
 
-    # return render_template("index.html", title="Главная", list=info)
+
 @app.route("/", methods=("POST", "GET"))
 @app.route("/form", methods=("POST", "GET"))
 def form():
-    #реализовать, что заявка уже отправлена, если чел 1 раз отправил
     if request.method == "POST":
         try:
             email = request.form["email"]
